@@ -75,3 +75,8 @@ function return_json_data ()
   ];
   return json_encode($results);
 }
+
+function get_user_messages ()
+{
+  return "<script>alert('hello');</script>";
+}
