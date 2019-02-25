@@ -98,3 +98,12 @@ function loop_through ($j)
   for ($i=0; $i < $j; $i++)
     echo $i;
 }
+
+function is_null_function() {
+  $obj = null;
+  if ($obj == false) {
+      echo 'is not null';
+  } else {
+      echo 'is null';
+  }
+}
