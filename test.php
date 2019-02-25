@@ -31,3 +31,5 @@ var_dump(db_results(1)->a);
 echo '<br/>';
 
 echo generate_dynamic_string (1, 2, 3);
+
+echo return_json_data();
