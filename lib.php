@@ -23,3 +23,15 @@ function execute_complicated_function ($parameters)
     echo 'Exception found';
   }
 }
+
+function update_list ($list)
+{
+    if (array_key_exists('a', $list))
+    {
+      $list['a'] = 'updated';
+    }
+
+    $list['b'] = 1;
+
+    return true;
+}
