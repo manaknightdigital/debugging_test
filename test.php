@@ -36,4 +36,6 @@ echo return_json_data();
 
 echo get_user_messages();
 
+echo is_adult(1);
+
 mysql_escape_string('1,2,3,4');
