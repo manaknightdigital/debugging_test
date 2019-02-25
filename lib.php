@@ -67,3 +67,11 @@ function generate_dynamic_string ($x, $y, $z) {
 
   return $results;
 }
+
+function return_json_data ()
+{
+  $results = [
+    'scientist' => ['Schrödinger', 'Einstein', 'Newton']
+  ];
+  return json_encode($results);
+}
