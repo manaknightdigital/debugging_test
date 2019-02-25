@@ -29,3 +29,5 @@ echo seperatestringwithcommas($list_of_numbers);
 
 var_dump(db_results(1)->a);
 echo '<br/>';
+
+echo generate_dynamic_string (1, 2, 3);
