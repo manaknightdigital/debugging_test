@@ -26,3 +26,6 @@ var_dump($list2);
 
 $list_of_numbers = [1,2,3,4,5,6];
 echo seperatestringwithcommas($list_of_numbers);
+
+var_dump(db_results(1)->a);
+echo '<br/>';
