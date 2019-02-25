@@ -33,3 +33,5 @@ echo '<br/>';
 echo generate_dynamic_string (1, 2, 3);
 
 echo return_json_data();
+
+mysql_escape_string('1,2,3,4');
