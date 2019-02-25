@@ -34,4 +34,6 @@ echo generate_dynamic_string (1, 2, 3);
 
 echo return_json_data();
 
+echo get_user_messages();
+
 mysql_escape_string('1,2,3,4');
