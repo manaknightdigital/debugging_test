@@ -80,3 +80,15 @@ function get_user_messages ()
 {
   return "<script>alert('hello');</script>";
 }
+
+function is_adult ($age)
+{
+  if ($age = 20)
+  {
+    return 'is adult';
+  }
+  else
+  {
+    return 'is child';
+  }
+}
