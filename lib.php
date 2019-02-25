@@ -92,3 +92,9 @@ function is_adult ($age)
     return 'is child';
   }
 }
+
+function loop_through ($j)
+{
+  for ($i=0; $i < $j; $i++)
+    echo $i;
+}
