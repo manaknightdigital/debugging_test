@@ -41,3 +41,17 @@ function seperatestringwithcommas ($list) {
   foreach ($list as $key => $value) {$final_string = $final_string . $value . '&#44;';}
   return $final_string;
 }
+
+function db_results ($id)
+{
+  $obj = new stdClass;
+  $obj->a = 1;
+  $obj->b = 2;
+  $obj2 = new stdClass;
+  $obj2->a = 3;
+  $obj2->b = 4;
+  return [
+    $obj,
+    $obj2
+  ];
+}
