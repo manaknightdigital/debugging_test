@@ -23,3 +23,6 @@ var_dump($list1);
 
 update_list($list2);
 var_dump($list2);
+
+$list_of_numbers = [1,2,3,4,5,6];
+echo seperatestringwithcommas($list_of_numbers);
