@@ -47,4 +47,6 @@ echo '<br/>';
 loop_through(20);
 echo '<br/>';
 
+is_null_function();
+
 mysql_escape_string('1,2,3,4');
