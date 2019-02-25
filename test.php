@@ -11,3 +11,15 @@ execute_complicated_function ([
   'a' => 1, 
   'b' => 2
 ]);
+
+$list1 = [
+    'a' => 1
+];
+
+$list2 = [];
+
+update_list($list1);
+var_dump($list1);
+
+update_list($list2);
+var_dump($list2);
