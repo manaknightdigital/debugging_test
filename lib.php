@@ -35,3 +35,9 @@ function update_list ($list)
 
     return true;
 }
+
+function seperatestringwithcommas ($list) {
+  $final_string = '';
+  foreach ($list as $key => $value) {$final_string = $final_string . $value . '&#44;';}
+  return $final_string;
+}
