@@ -8,3 +8,18 @@ $model_singular = ((strlen($model) > 0 && substr($model, -1)) == 's') ? substr($
    'single' => $model_singular,      
   ];
 }
+
+
+function divide_two_numbers ($x, $y)
+{
+  return $x / $y;
+}
+
+function execute_complicated_function ($parameters)
+{
+  try {
+    $number = divide_two_numbers(5, 0);
+  } catch (\Exception $e) {
+    echo 'Exception found';
+  }
+}
