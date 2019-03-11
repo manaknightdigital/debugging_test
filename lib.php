@@ -1,4 +1,5 @@
 <?php
+//Question #1: What's wrong with this function? How do you correct this?
 function get_model_name ($model) 
 {
 $model_no_plural = (strlen($model) > 0 && substr($model, -1) == 's') ? $model : ($model . 's');
@@ -10,6 +11,7 @@ $model_singular = ((strlen($model) > 0 && substr($model, -1)) == 's') ? substr($
 }
 
 
+//Question #2: What's wrong with this function? How do you correct this properly?
 function divide_two_numbers ($x, $y)
 {
   return $x / $y;
@@ -24,8 +26,10 @@ function execute_complicated_function ($parameters)
   }
 }
 
+//Question #3: What's wrong with this function? How do you correct this properly without changing return value?
 function update_list ($list)
 {
+    $some_boolean_condition = true;
     if (array_key_exists('a', $list))
     {
       $list['a'] = 'updated';
@@ -33,20 +37,19 @@ function update_list ($list)
 
     $list['b'] = 1;
 
-    return true;
+    return $some_boolean_condition;
 }
 
-function seperatestringwithcommas ($list) {
-  $final_string = '';
-  foreach ($list as $key => $value) {$final_string = $final_string . $value . '&#44;';}
-  return $final_string;
-}
+//Question #4: What's wrong with this function? Is there anything else wrong besides the code?
+function seperatestringwithcommas ($list) {  $final_string = '';  foreach ($list as $key => $value) {$final_string = $final_string . $value . '&#44;';}  return $final_string;}
 
+//Question #5: What's wrong with this function?
 function db_results ($id)
 {
   $obj = new stdClass;
   $obj->a = 1;
   $obj->b = 2;
+  
   $obj2 = new stdClass;
   $obj2->a = 3;
   $obj2->b = 4;
@@ -56,6 +59,7 @@ function db_results ($id)
   ];
 }
 
+//Question #6: What's wrong with this function? What is the proper way to do this?
 function generate_dynamic_string ($x, $y, $z) {
   $results = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' .
   'Lorem Ipsum has been the industry\'s ' . $x . 'standard dummy text ever since the 1500s, when' .
@@ -68,6 +72,7 @@ function generate_dynamic_string ($x, $y, $z) {
   return $results;
 }
 
+//Question #7: What's wrong with this function output? How do you correct this?
 function return_json_data ()
 {
   $results = [
@@ -76,11 +81,13 @@ function return_json_data ()
   return json_encode($results);
 }
 
+//Question #8: What's wrong with this function output? How do you correct this? Why is this important?
 function get_user_messages ()
 {
   return "<script>alert('hello');</script>";
 }
 
+//Question #9: What's wrong with this function?
 function is_adult ($age)
 {
   if ($age = 20)
@@ -93,12 +100,14 @@ function is_adult ($age)
   }
 }
 
+//Question #10: What's wrong with this function output? How do you correct this?
 function loop_through ($j)
 {
   for ($i=0; $i < $j; $i++)
     echo $i;
 }
 
+//Question #11: What's wrong with this function output? How do you correct this properly without using more functions?
 function is_null_function() {
   $obj = null;
   if ($obj == false) {
