@@ -1,33 +1,38 @@
 <?php
 
-//Question #1: Why is this function not working as expected? How do you correct this?
-/**
-* Test Output:
-* get_model_name ('abc')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "ab"]
-* get_model_name ('abcs')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "abc"]
-*/
-function get_model_name ($model) 
+//Question #1: Why is this function bad? How do you fix this?
+function loop_through ($j)
 {
-$model_no_plural = (strlen($model) > 0 && substr($model, -1) == 's') ? $model : ($model . 's');
-$model_singular = ((strlen($model) > 0 && substr($model, -1)) == 's') ? substr($model, 0, strlen($model) - 1) : $model;
-  return [
-   'plural' => $model_no_plural,
-   'single' => $model_singular,      
-  ];
+  for ($i=0; $i < $j; $i++) {
+    echo $i;  
+  }
 }
 
-//Question #2: Why is this function not working as expected? How do you correct this?
+//Question #2: Why is this function bad? How do you fix this?
+function is_null_custom_function() {
+  $obj = null;
+  if ($obj == false) {
+      echo 'is not null';
+  } else {
+      echo 'is null';
+  }
+}
+
+//Question #3: Why is this function not working as expected? How do you correct this?
 /**
 * Test Output:
 * divide_two_numbers (1, 2)  => 0.5
 * divide_two_numbers (10,0)  => Division by zero
+* Expected Output:
+* divide_two_numbers (1,2)  => 0.5
+* divide_two_numbers (10, 2)  => 0
 */
 function divide_two_numbers ($x, $y)
 {
   return $x / $y;
 }
 
-//Question #3: During a large data migration, you get the following error: 
+//Question #4: During a large data migration, you get the following error: 
 /**
 Fatal error: Allowed memory size of 134217728 bytes exhausted (tried to allocate 54 bytes). 
 You've traced the problem to the following snippet of code:
@@ -41,34 +46,37 @@ foreach ($results as $result) {
 How would you refactor this code so that it stops triggering the memory error. 
 */
 
-//Question #4: What's wrong with this function? 
+//Question #5: What's wrong with this function? 
 //How do you correct this properly without changing return value?
 /**
 * Test Output:
-* update_list (['a'])  => true
-* update_list (['b', 'c'])  => true
+* update_list_a_value (['a'])  => true
+* update_list_a_value (['b', 'c'])  => true
+* Expected Output:
+* update_list_a_value (['a'])  => true
+* update_list_a_value (['b', 'c'])  => false
 */
-function update_list ($list)
+function update_list_a_value ($list)
 {
     $some_boolean_condition = true;
     if (array_key_exists('a', $list))
     {
       $list['a'] = 'updated';
-    }
-
-    $list['b'] = 1;
-
+    } 
     return $some_boolean_condition;
 }
 
-//Question #5: What's wrong with this function? 
+//Question #6: What's wrong with this function? 
 //We want to see this in a text document not HTML.
 /**
 * Test Output:
-* seperatestringwithcommas (['a', 'b'])  => a&#44;b&#44;
-* seperatestringwithcommas (['a', 'b'])  => a&#44;
+* seperate_string_with_commas (['a', 'b'])  => a&#44;b&#44;
+* seperate_string_with_commas (['a', 'b'])  => a&#44;
+* Expected Output:
+* seperate_string_with_commas (['a', 'b'])  => a,b
+* seperate_string_with_commas (['a'])  => a
 */
-function seperatestringwithcommas ($list) {  
+function seperate_string_with_commas ($list) {  
     $final_string = '';  
     foreach ($list as $key => $value) {
         $final_string = $final_string . $value . '&#44;';
@@ -76,7 +84,7 @@ function seperatestringwithcommas ($list) {
     return $final_string;
 }
 
-//Question #6:
+//Question #7:
 /**
 Show some code that illustrates how you would hash a user's password, and also how you 
 would check that a password supplied by a user matches the password on file.
@@ -85,7 +93,7 @@ If your client cannot upgrade to PHP 5.5, and you have to hash passwords using e
 PHP libraries, what is one library/package that makes this easy?
 */
 
-//Question #7: Why is this code bad? How would you improve it(HINT: best practice)?
+//Question #8: Why is this code bad? How would you improve it(HINT: best practice)?
 /**
 * Test Output:
 * generate_dynamic_string ($x, $y, $z) =>  A non-numeric value encountered
@@ -111,12 +119,14 @@ function generate_dynamic_string ($x, $y, $z) {
   return $results;
 }
 
-//Question #8: Why is the return value bad? How do you fix this?
+//Question #9: Why is the return value bad? How do you fix this(HINT: look at line 126https://github.com/manaknightdigital/debugging_test/blob/master/codeigniter_challenge.md)?
 /**
 * Test Output:
-* return_json_data() => {"scientist":["Schr\u00f6dinger","Einstein","Newton"]}
+* return_json_data_of_scientist() => {"scientist":["Schr\u00f6dinger","Einstein","Newton"]}
+* Test Expected:
+* return_json_data_of_scientist() => {"scientist":["Schrödinger","Einstein","Newton"]}
 */
-function return_json_data ()
+function return_json_data_of_scientist ()
 {
   $results = [
     'scientist' => ['Schrödinger', 'Einstein', 'Newton']
@@ -124,17 +134,18 @@ function return_json_data ()
   return json_encode($results);
 }
 
-//Question #9: Why is the return value bad? How do you fix this (HINT: Best practice)?
-/**
-* Test Output:
-* echo get_user_messages() => <script>alert('hello');</script>
-*/
-function get_user_messages ()
+//Question #10: Why is the return value bad? How do you fix this (HINT: Best practice)?
+function print_friend_list ()
 {
-  return "<script>alert('hello');</script>";
+ $friends = ['Bob', 'Anna', "<script>alert('hello');</script>", 'Sally'];
+ echo '<ul>';
+ foreach ($friends as $friend) {
+     echo '<li>' . $friend . '</li>';
+ }
+ echo '</ul>';
 }
 
-//Question #10: Why is this function bad? How do you fix this?
+//Question #11: Why is this function bad? How do you fix this?
 /**
 * Test Output:
 * is_adult(5) => 'is child'
@@ -154,20 +165,30 @@ function is_adult ($age)
   }
 }
 
-//Question #11: Why is this function bad? How do you fix this?
-function loop_through ($j)
+//Question #12: Why is this function not working as expected? How do you correct this?
+/**
+* Test Output:
+* get_plural_data ('abc')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "ab"]
+* get_plural_data ('abcs')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "abc"]
+* Expected Output:
+* get_plural_data ('abc')  => [ ["plural"]=>  string(4) "abc"  ["single"]=>  string(2) "abc"]
+* get_plural_data ('abcs')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "abc"]
+*/
+function get_plural_data ($model) 
 {
-  for ($i=0; $i < $j; $i++) {
-    echo $i;  
-  }
-}
-
-//Question #11: Why is this function bad? How do you fix this?
-function is_null_custom_function() {
-  $obj = null;
-  if ($obj == false) {
-      echo 'is not null';
-  } else {
-      echo 'is null';
-  }
+    $model_plural = $model . 's';
+    $model_singular = $model;
+    
+    if (strlen($model) > 0 && substr($model, -1) == 's') {
+        $model_plural = $model;    
+    }
+    
+    if ((strlen($model) > 0 && substr($model, -1)) == 's') {
+        $model_singular = substr($model, 0, strlen($model) - 1);
+    }
+    
+    return [
+        'plural' => $model_plural,
+        'single' => $model_singular,      
+    ];
 }
