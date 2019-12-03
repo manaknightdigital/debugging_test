@@ -25,7 +25,7 @@ function is_null_custom_function() {
 * divide_two_numbers (10,0)  => Division by zero
 * Expected Output:
 * divide_two_numbers (1,2)  => 0.5
-* divide_two_numbers (10, 2)  => 0
+* divide_two_numbers (10, 0)  => 0
 */
 function divide_two_numbers ($x, $y)
 {
@@ -119,7 +119,7 @@ function generate_dynamic_string ($x, $y, $z) {
   return $results;
 }
 
-//Question #9: Why is the return value bad? How do you fix this(HINT: look at line 126https://github.com/manaknightdigital/debugging_test/blob/master/codeigniter_challenge.md)?
+//Question #9: Why is the return value bad? How do you fix this(HINT: look at line 126)?
 /**
 * Test Output:
 * return_json_data_of_scientist() => {"scientist":["Schr\u00f6dinger","Einstein","Newton"]}
@@ -134,7 +134,7 @@ function return_json_data_of_scientist ()
   return json_encode($results);
 }
 
-//Question #10: Why is the return value bad? How do you fix this (HINT: Best practice)?
+//Question #10: Why is the function output bad? How do you fix this (HINT: Best practice)?
 function print_friend_list ()
 {
  $friends = ['Bob', 'Anna', "<script>alert('hello');</script>", 'Sally'];
@@ -168,11 +168,11 @@ function is_adult ($age)
 //Question #12: Why is this function not working as expected? How do you correct this?
 /**
 * Test Output:
-* get_plural_data ('abc')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "ab"]
-* get_plural_data ('abcs')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "abc"]
+* get_plural_data ('abc')  => [ ["plural"]=>  "abcs"  ["single"]=>   "ab"]
+* get_plural_data ('abcs')  => [ ["plural"]=> "abcs"  ["single"]=>   "abc"]
 * Expected Output:
-* get_plural_data ('abc')  => [ ["plural"]=>  string(4) "abc"  ["single"]=>  string(2) "abc"]
-* get_plural_data ('abcs')  => [ ["plural"]=>  string(4) "abcs"  ["single"]=>  string(2) "abc"]
+* get_plural_data ('abc')  => [ ["plural"]=>   "abc"  ["single"]=>  "abc"]
+* get_plural_data ('abcs')  => [ ["plural"]=>  "abcs"  ["single"]=> "abc"]
 */
 function get_plural_data ($model) 
 {
