@@ -13,7 +13,7 @@ You will make an ecommerce store that sells albums. For this test, the id will b
 1. Go to https://jsonplaceholder.typicode.com/ and learn how their fake api works
 2. Make a page http://localhost/store that displays your store. On your store, 
 you will show cards of the album with title, price and a button to buy. 3 cards per row. 
-Should work on mobile as well.
+Should work on mobile as well. You will pull albums from the jsonplaceholder api to display them.
 3. Integrate store with [Stripe](https://stripe.com/docs/payments/accept-a-payment#php) so when they click buy, 
 it gets processed by stripe and you save a record of payment in database.
 4. Once processed payment, show thank you page.
